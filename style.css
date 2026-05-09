@@ -1,0 +1,353 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background: linear-gradient(145deg, #e9f0f5 0%, #d9e2ec 100%);
+    padding: 30px 20px;
+}
+
+/* container utama */
+.main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* header kampus (gaya formal) */
+.univ-header {
+    background: #0a2b3e;
+    color: white;
+    padding: 1.2rem 2rem;
+    border-radius: 28px 28px 20px 20px;
+    margin-bottom: 28px;
+    box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+    border-bottom: 4px solid #eab308;
+}
+.univ-header h1 {
+    font-size: 1.7rem;
+    letter-spacing: -0.3px;
+    font-weight: 600;
+}
+.univ-header h1 small {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #cbd5e6;
+}
+.univ-header p {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-top: 6px;
+}
+
+/* dua kolom: form kiri + tabel kanan (responsive) */
+.dashboard-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+.form-card {
+    flex: 1.2;
+    min-width: 340px;
+    background: white;
+    border-radius: 32px;
+    box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+    overflow: hidden;
+    transition: all 0.2s;
+}
+.table-card {
+    flex: 2.2;
+    min-width: 500px;
+    background: white;
+    border-radius: 32px;
+    box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
+    overflow-x: auto;
+    padding: 0 0 16px 0;
+}
+
+/* styling form */
+.form-header {
+    background: #1e4a6b;
+    padding: 1rem 1.8rem;
+    color: white;
+}
+.form-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.form-body {
+    padding: 1.8rem;
+}
+.input-group {
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+.input-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #1e2f3a;
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+}
+.input-group input, .input-group select {
+    padding: 12px 14px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: 0.2s;
+    background: #fefefe;
+}
+.input-group input:focus, .input-group select:focus {
+    border-color: #1e4a6b;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(30,74,107,0.2);
+}
+.inline-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.inline-row .input-group {
+    flex: 1;
+}
+.radio-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+.btn-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 40px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: #eef2f6;
+    color: #1f3b4c;
+}
+.btn-primary {
+    background: #1e4a6b;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.btn-primary:hover {
+    background: #0f3b58;
+    transform: scale(0.98);
+}
+.btn-success {
+    background: #2b7a4b;
+    color: white;
+}
+.btn-success:hover {
+    background: #1f5e3a;
+}
+.btn-warning {
+    background: #b45309;
+    color: white;
+}
+.btn-warning:hover {
+    background: #9b4306;
+}
+
+/* tabel modern */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    min-width: 900px;
+}
+.data-table th {
+    background: #1e3a4b;
+    color: white;
+    padding: 12px 8px;
+    font-weight: 600;
+    text-align: center;
+    border-right: 1px solid #2c5268;
+}
+.data-table td {
+    padding: 10px 6px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+    background-color: #fff;
+}
+.data-table tr:hover td {
+    background-color: #f1f9fe;
+}
+.badge-lulus {
+    background: #c8e6df;
+    color: #1f6e43;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 40px;
+    display: inline-block;
+}
+.badge-cadangan {
+    background: #fff3bf;
+    color: #b67700;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 40px;
+    display: inline-block;
+}
+.badge-gagal {
+    background: #ffe0db;
+    color: #b33a2c;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 40px;
+    display: inline-block;
+}
+.aksi-btn {
+    background: none;
+    border: none;
+    color: #b91c1c;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 4px 10px;
+    border-radius: 30px;
+}
+.aksi-btn:hover {
+    background: #ffefef;
+}
+.info-baris {
+    text-align: center;
+    padding: 20px;
+    color: #5f7f8c;
+    font-style: italic;
+}
+.jumlah-info {
+    background: #eef2ff;
+    padding: 8px 16px;
+    border-radius: 40px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 20px 0 20px;
+}
+hr {
+    margin: 8px 0;
+}
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.7rem;
+    color: #2c4e6e;
+}
+
+/* ========== STYLE STATISTIK ========== */
+.stats-container {
+    display: flex;
+    gap: 20px;
+    padding: 16px 20px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    flex: 1;
+    min-width: 120px;
+    background: white;
+    border-radius: 20px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.stat-card.lulus {
+    border-left: 5px solid #2b7a4b;
+}
+
+.stat-card.cadangan {
+    border-left: 5px solid #eab308;
+}
+
+.stat-card.gagal {
+    border-left: 5px solid #b91c1c;
+}
+
+.stat-icon {
+    font-size: 2rem;
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1e293b;
+}
+
+.stat-card.lulus .stat-value {
+    color: #2b7a4b;
+}
+
+.stat-card.cadangan .stat-value {
+    color: #b67700;
+}
+
+.stat-card.gagal .stat-value {
+    color: #b91c1c;
+}
+
+@media (max-width: 860px) {
+    .dashboard-grid {
+        flex-direction: column;
+    }
+    .table-card {
+        min-width: auto;
+    }
+    .stats-container {
+        flex-direction: column;
+    }
+    .stat-card {
+        min-width: auto;
+    }
+}

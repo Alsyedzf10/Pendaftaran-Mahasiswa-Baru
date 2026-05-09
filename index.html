@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>SIMAK - Sistem Pendaftaran & Manajemen Nilai | Universitas Ankara Larasati</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="main-container">
+    <!-- header universitas sesuai deskripsi -->
+    <div class="univ-header">
+        <h1>UNIVERSITAS ANKARA LARASATI <small>Fakultas Teknik Industri Komputer</small></h1>
+        <p>UJIAN TENTANG PAMULANG | Pemrograman Web (1) | Semester: 7 | Program Studi: Teknik Informatika | Tanggal: 2022/12/06</p>
+        <p style="font-size:0.75rem;">Direktorat Jenderal Pendidikan Tinggi - Kementerian Pendidikan dan Kebudayaan | Kampus Ankara Larasati, Jakarta</p>
+    </div>
+
+    <div class="dashboard-grid">
+        <!-- FORM PENDAFTARAN (INPUT) -->
+        <div class="form-card">
+            <div class="form-header">
+                <h2>📋 PENDAFTARAN PESERTA UJIAN</h2>
+                <span style="font-size:0.75rem;">* data nilai tes & informasi pendaftar</span>
+            </div>
+            <div class="form-body">
+                <!-- JUMLAH INPUT DATA (hanya sebagai info realtime) -->
+                <div class="input-group">
+                    <label>📊 JUMLAH DATA TERDAFTAR</label>
+                    <input type="text" id="jumlahDataDisplay" readonly value="0" style="background:#eef2f3; font-weight:bold;">
+                </div>
+
+                <!-- KODE PENDAFTARAN OTOMATIS (Readonly) -->
+                <div class="input-group">
+                    <label>🔑 KODE PENDAFTARAN (Otomatis)</label>
+                    <input type="text" id="kodePendaftaran" readonly style="background:#eef2f3; font-weight:bold; font-family: monospace; font-size:1rem;">
+                    <small style="color:#4d5f6b; margin-top:4px;">Format: [A/B/V][Gelombang]-[No Urut]-[Bulan] | Contoh: B5-01-5</small>
+                </div>
+
+                <!-- PEMILIHAN TEMPAT TES -->
+                <div class="input-group">
+                    <label>🏢 TEMPAT TES</label>
+                    <select id="tempatTesSelect">
+                        <option value="GEDUNG A">GEDUNG A</option>
+                        <option value="GEDUNG B">GEDUNG B</option>
+                        <option value="UNPAM VIKTOR">UNPAM VIKTOR</option>
+                    </select>
+                </div>
+
+                <!-- PEMILIHAN GELOMBANG -->
+                <div class="input-group">
+                    <label>📅 GELOMBANG PENDAFTARAN</label>
+                    <select id="gelombang">
+                        <option value="1">Gelombang 1</option>
+                        <option value="2">Gelombang 2</option>
+                        <option value="3">Gelombang 3</option>
+                        <option value="4">Gelombang 4</option>
+                        <option value="5">Gelombang 5</option>
+                        <option value="6">Gelombang 6</option>
+                    </select>
+                </div>
+
+                <!-- PEMILIHAN BULAN TES -->
+                <div class="input-group">
+                    <label>📆 BULAN TES</label>
+                    <select id="bulanTes">
+                        <option value="1">Januari (1)</option>
+                        <option value="2">Februari (2)</option>
+                        <option value="3">Maret (3)</option>
+                        <option value="4">April (4)</option>
+                        <option value="5">Mei (5)</option>
+                        <option value="6">Juni (6)</option>
+                        <option value="7">Juli (7)</option>
+                        <option value="8">Agustus (8)</option>
+                        <option value="9">September (9)</option>
+                        <option value="10">Oktober (10)</option>
+                        <option value="11">November (11)</option>
+                        <option value="12">Desember (12)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>NAMA PENDAFTAR</label>
+                    <input type="text" id="namaPendaftar" placeholder="Nama lengkap">
+                </div>
+
+                <!-- JENIS KELAMIN dengan radio -->
+                <div class="input-group radio-group">
+                    <label style="margin-right:12px;">JENIS KELAMIN :</label>
+                    <label><input type="radio" name="jenisKelamin" value="Laki-laki"> Laki-laki</label>
+                    <label><input type="radio" name="jenisKelamin" value="Perempuan"> Perempuan</label>
+                </div>
+
+                <!-- TTL: Tempat, Tanggal lahir -->
+                <div class="inline-row">
+                    <div class="input-group" style="flex:1">
+                        <label>TEMPAT LAHIR</label>
+                        <input type="text" id="tempatLahir" placeholder="Contoh: Jakarta">
+                    </div>
+                    <div class="input-group" style="flex:1">
+                        <label>TANGGAL LAHIR</label>
+                        <input type="date" id="tanggalLahir">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>ASAL SEKOLAH</label>
+                    <input type="text" id="asalSekolah" placeholder="Nama SMA/SMK/MA">
+                </div>
+
+                <!-- PEKERJAAN ORTU -->
+                <div class="input-group">
+                    <label>PEKERJAAN ORTU (Bisa diketik atau pilih dari opsi)</label>
+                    <input type="text" id="pekerjaanOrtu" list="pekerjaanOptions" placeholder="Ketik pekerjaan orang tua atau pilih dari daftar" autocomplete="off">
+                    <datalist id="pekerjaanOptions">
+                        <option value="PNS/TNI/POLRI">
+                        <option value="Swasta">
+                        <option value="Petani/Buruh">
+                        <option value="Wiraswasta">
+                        <option value="Nelayan">
+                        <option value="Ibu Rumah Tangga">
+                        <option value="Dosen/Guru">
+                        <option value="Dokter">
+                        <option value="Pengacara">
+                        <option value="Karyawan BUMN">
+                        <option value="Tidak Bekerja">
+                    </datalist>
+                </div>
+
+                <div class="inline-row">
+                    <div class="input-group"><label>📐 NILAI MATEMATIKA</label><input type="number" id="nilaiMatematika" placeholder="0-100" min="0" max="100" step="1"></div>
+                    <div class="input-group"><label>🇬🇧 NILAI BAHASA INGGRIS</label><input type="number" id="nilaiInggris" placeholder="0-100" min="0" max="100" step="1"></div>
+                    <div class="input-group"><label>📚 PENGETAHUAN UMUM</label><input type="number" id="nilaiUmum" placeholder="0-100" min="0" max="100" step="1"></div>
+                </div>
+
+                <div class="btn-group">
+                    <button id="simpanBtn" class="btn-primary">💾 SIMPAN</button>
+                    <button id="nextBtn" class="btn-success">➡️ NEXT (Reset Form)</button>
+                </div>
+                <div style="font-size:0.7rem; margin-top: 8px; color:#4d5f6b;">* NEXT membersihkan form tetapi mempertahankan nomor urut kode pendaftaran</div>
+            </div>
+        </div>
+
+        <!-- TABEL DATA PESERTA -->
+        <div class="table-card">
+            <div class="flex-between">
+                <h3 style="margin: 16px 0 0 8px;">📋 TABEL DATA PENDAFTAR & HASIL UJIAN</h3>
+                <div class="jumlah-info" id="jumlahRecordSpan">Total Pendaftar: 0</div>
+            </div>
+
+            <!-- STATISTIK -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon">📝</div>
+                    <div class="stat-info">
+                        <span class="stat-label">Total Pendaftar</span>
+                        <span class="stat-value" id="statTotal">0</span>
+                    </div>
+                </div>
+                <div class="stat-card lulus">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <span class="stat-label">Pendaftar LULUS</span>
+                        <span class="stat-value" id="statLulus">0</span>
+                    </div>
+                </div>
+                <div class="stat-card cadangan">
+                    <div class="stat-icon">🟡</div>
+                    <div class="stat-info">
+                        <span class="stat-label">Pendaftar CADANGAN</span>
+                        <span class="stat-value" id="statCadangan">0</span>
+                    </div>
+                </div>
+                <div class="stat-card gagal">
+                    <div class="stat-icon">❌</div>
+                    <div class="stat-info">
+                        <span class="stat-label">Pendaftar TIDAK LULUS</span>
+                        <span class="stat-value" id="statTidakLulus">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="overflow-x: auto; margin-top: 8px;">
+                <table class="data-table" id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>KODE PENDAFTARAN</th><th>NAMA PENDAFTAR</th><th>TEMPAT LAHIR</th><th>JENIS KELAMIN</th>
+                            <th>TGL LAHIR</th><th>PEKERJAAN ORTU</th><th>TEMPAT TES</th><th>BAHASA INGGRIS</th>
+                            <th>MATEMATIKA</th><th>PENGETAHUAN UMUM</th><th>RATA RATA</th><th>KETERANGAN</th><th>AKSI</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <tr><td colspan="13" class="info-baris">Belum ada data pendaftar. Silakan tambah data.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="padding: 12px 20px; font-size: 0.7rem; color: #2c5a74;">* Sistem Pendaftaran & Manajemen Nilai - Universitas Ankara Larasati</div>
+        </div>
+    </div>
+    <footer>
+        Disetujui Oleh: Dr. Ketut Agung M.A., B.NGCAS UMUM | Ketua Sekretariat Fakultas Teknik Industri | Tanggapan Tahun: 2026
+        <br>Kepala Bidang: Dr. I Wayan Gede Surya Adi, M.A., B.NGCAS UMUM
+    </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
